@@ -1,0 +1,2849 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TemplateHub - Galería de Plantillas Web Premium</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3a86ff;
+            --primary-dark: #2667cc;
+            --secondary: #ff006e;
+            --accent: #8338ec;
+            --dark: #1a1a2e;
+            --light: #ffffff;
+            --gray-100: #f8f9fa;
+            --gray-200: #e9ecef;
+            --gray-300: #dee2e6;
+            --gray-400: #ced4da;
+            --gray-500: #adb5bd;
+            --gray-600: #6c757d;
+            --gray-700: #495057;
+            --gray-800: #343a40;
+            --gray-900: #212529;
+            
+            --font-primary: 'Poppins', sans-serif;
+            --font-secondary: 'Montserrat', sans-serif;
+            
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+            
+            --transition: all 0.3s ease;
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            
+            --font-size-base: 1.6rem;
+            --font-size-sm: 1.4rem;
+            --font-size-lg: 1.8rem;
+            --font-size-xl: 2rem;
+            --font-size-2xl: 2.4rem;
+            --font-size-3xl: 3rem;
+            --font-size-4xl: 3.6rem;
+            --font-size-5xl: 4.8rem;
+            
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 3rem;
+            --spacing-xl: 4rem;
+            --spacing-2xl: 6rem;
+        }
+
+        body.high-contrast {
+            --primary: #0066ff;
+            --primary-dark: #0044cc;
+            --secondary: #ff0055;
+            --accent: #9900ff;
+            --dark: #000000;
+            --light: #ffffff;
+            --gray-100: #f0f0f0;
+            --gray-200: #e0e0e0;
+            --gray-300: #d0d0d0;
+            --gray-400: #b0b0b0;
+            --gray-500: #909090;
+            --gray-600: #707070;
+            --gray-700: #505050;
+            --gray-800: #303030;
+            --gray-900: #101010;
+        }
+
+        body.large-text {
+            --font-size-base: 2rem;
+            --font-size-sm: 1.8rem;
+            --font-size-lg: 2.2rem;
+            --font-size-xl: 2.4rem;
+            --font-size-2xl: 2.8rem;
+            --font-size-3xl: 3.4rem;
+            --font-size-4xl: 4rem;
+            --font-size-5xl: 5.2rem;
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 62.5%;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            font-size: var(--font-size-base);
+            line-height: 1.6;
+            color: var(--gray-800);
+            background-color: var(--gray-100);
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        button {
+            cursor: pointer;
+            font-family: inherit;
+            border: none;
+            background: none;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 10rem 0;
+        }
+
+        .section-title {
+            font-size: var(--font-size-4xl);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 6rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8rem;
+            height: 0.4rem;
+            background: var(--primary);
+            border-radius: 5rem;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: transparent;
+            transition: var(--transition);
+            padding: 2rem 0;
+        }
+
+        .header.scrolled {
+            background-color: var(--light);
+            box-shadow: var(--shadow-md);
+            padding: 1rem 0;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: var(--font-size-2xl);
+            font-weight: 700;
+            color: var(--light);
+            transition: var(--transition);
+        }
+
+        .header.scrolled .logo {
+            color: var(--dark);
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .logo-icon {
+            margin-right: 1rem;
+            font-size: 2.8rem;
+        }
+
+        .nav-list {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .nav-link {
+            font-size: var(--font-size-base);
+            font-weight: 500;
+            color: var(--light);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .header.scrolled .nav-link {
+            color: var(--gray-700);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-link:hover,
+        .nav-link.active,
+        .header.scrolled .nav-link:hover,
+        .header.scrolled .nav-link.active {
+            color: var(--primary);
+        }
+
+        .nav-toggle {
+            display: none;
+            font-size: 2.4rem;
+            color: var(--light);
+        }
+
+        .header.scrolled .nav-toggle {
+            color: var(--dark);
+        }
+
+        .language-switcher {
+            position: relative;
+            margin-left: 2rem;
+        }
+
+        .language-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: var(--radius-md);
+            color: var(--light);
+            font-size: var(--font-size-sm);
+            font-weight: 500;
+        }
+
+        .header.scrolled .language-btn {
+            background-color: var(--gray-200);
+            color: var(--gray-700);
+        }
+
+        .language-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            width: 12rem;
+            background-color: var(--light);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            padding: 1rem 0;
+            margin-top: 0.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: var(--transition);
+            z-index: 10;
+        }
+
+        .language-switcher:hover .language-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .language-option {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.8rem 1.5rem;
+            font-size: var(--font-size-sm);
+            color: var(--gray-700);
+            transition: var(--transition);
+        }
+
+        .language-option:hover {
+            background-color: var(--gray-100);
+            color: var(--primary);
+        }
+
+        .language-flag {
+            width: 2rem;
+            height: 1.5rem;
+            object-fit: cover;
+            border-radius: 2px;
+        }
+
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 60rem;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.9) 0%, rgba(58, 134, 255, 0.8) 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2;
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 70rem;
+            color: var(--light);
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: var(--font-size-5xl);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards 0.3s;
+        }
+
+        .hero-subtitle {
+            font-size: var(--font-size-xl);
+            margin-bottom: 4rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards 0.5s;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 2rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards 0.7s;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            font-size: var(--font-size-base);
+            font-weight: 500;
+            text-align: center;
+            border-radius: var(--radius-md);
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--light);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--light);
+            color: var(--light);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--light);
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .hero-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            animation: floatAnimation 8s infinite ease-in-out;
+        }
+
+        .shape-1 {
+            width: 15rem;
+            height: 15rem;
+            top: 10%;
+            right: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape-2 {
+            width: 25rem;
+            height: 25rem;
+            bottom: -10%;
+            right: 20%;
+            animation-delay: 2s;
+        }
+
+        .shape-3 {
+            width: 20rem;
+            height: 20rem;
+            top: 30%;
+            left: -5%;
+            animation-delay: 4s;
+        }
+
+        .features {
+            background-color: var(--light);
+        }
+
+        .features-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+            gap: 4rem;
+        }
+
+        .feature-card {
+            background-color: var(--light);
+            border-radius: var(--radius-md);
+            padding: 4rem 3rem;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .feature-icon {
+            width: 8rem;
+            height: 8rem;
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.6rem;
+            color: var(--primary);
+            background-color: rgba(58, 134, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .feature-title {
+            font-size: var(--font-size-2xl);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--gray-800);
+        }
+
+        .feature-text {
+            color: var(--gray-600);
+            margin-bottom: 2rem;
+            font-size: var(--font-size-base);
+        }
+
+        .templates {
+            background-color: var(--gray-100);
+        }
+
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 4rem;
+        }
+
+        .filter-btn {
+            padding: 1rem 2rem;
+            font-size: var(--font-size-sm);
+            font-weight: 500;
+            color: var(--gray-700);
+            background-color: var(--light);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background-color: var(--primary);
+            color: var(--light);
+        }
+
+        .templates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(35rem, 1fr));
+            gap: 3rem;
+        }
+
+        .template-card {
+            position: relative;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            background-color: var(--light);
+        }
+
+        .template-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .template-image {
+            position: relative;
+            height: 25rem;
+            overflow: hidden;
+        }
+
+        .template-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .template-card:hover .template-image img {
+            transform: scale(1.1);
+        }
+
+        .template-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            opacity: 0;
+            transition: var(--transition);
+            display: flex;
+            align-items: flex-end;
+            padding: 2rem;
+        }
+
+        .template-card:hover .template-overlay {
+            opacity: 1;
+        }
+
+        .template-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .template-btn {
+            padding: 0.8rem 1.5rem;
+            font-size: var(--font-size-sm);
+            border-radius: var(--radius-sm);
+            background-color: var(--primary);
+            color: var(--light);
+        }
+
+        .template-btn.preview {
+            background-color: var(--light);
+            color: var(--dark);
+        }
+
+        .template-content {
+            padding: 2rem;
+        }
+
+        .template-tag {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            font-size: var(--font-size-sm);
+            font-weight: 500;
+            color: var(--primary);
+            background-color: rgba(58, 134, 255, 0.1);
+            border-radius: var(--radius-sm);
+            margin-bottom: 1rem;
+        }
+
+        .template-title {
+            font-size: var(--font-size-xl);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--gray-800);
+        }
+
+        .template-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .template-price {
+            font-size: var(--font-size-lg);
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .template-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--gray-600);
+            font-size: var(--font-size-sm);
+        }
+
+        .stars {
+            color: #ffc107;
+        }
+
+        .featured {
+            background-color: var(--light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background-color: rgba(58, 134, 255, 0.05);
+            clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
+            z-index: 0;
+        }
+
+        .featured-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .featured-content {
+            z-index: 1;
+        }
+
+        .featured-subtitle {
+            font-size: var(--font-size-lg);
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background-color: rgba(58, 134, 255, 0.1);
+            border-radius: var(--radius-sm);
+        }
+
+        .featured-title {
+            font-size: var(--font-size-4xl);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+            color: var(--gray-800);
+        }
+
+        .featured-text {
+            font-size: var(--font-size-base);
+            color: var(--gray-600);
+            margin-bottom: 3rem;
+        }
+
+        .featured-list {
+            margin-bottom: 4rem;
+        }
+
+        .featured-item {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-size: var(--font-size-base);
+            color: var(--gray-700);
+        }
+
+        .featured-icon {
+            width: 3rem;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(58, 134, 255, 0.1);
+            color: var(--primary);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .featured-image {
+            position: relative;
+            z-index: 1;
+        }
+
+        .featured-img {
+            width: 100%;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-xl);
+            transition: var(--transition);
+        }
+
+        .featured-img:hover {
+            transform: scale(1.03);
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: -2rem;
+            right: -2rem;
+            width: 10rem;
+            height: 10rem;
+            background-color: var(--secondary);
+            color: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--font-size-lg);
+            font-weight: 700;
+            box-shadow: var(--shadow-lg);
+            animation: pulse 2s infinite;
+        }
+
+        .testimonials {
+            background-color: var(--gray-100);
+        }
+
+        .testimonials-container {
+            max-width: 100rem;
+            margin: 0 auto;
+        }
+
+        .testimonial-slider {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .testimonial-slide {
+            min-width: 100%;
+            padding: 0 1.5rem;
+        }
+
+        .testimonial-card {
+            background-color: var(--light);
+            border-radius: var(--radius-md);
+            padding: 4rem;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+        }
+
+        .testimonial-quote {
+            font-size: var(--font-size-xl);
+            font-style: italic;
+            color: var(--gray-700);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .testimonial-quote::before,
+        .testimonial-quote::after {
+            content: '"';
+            font-size: 4rem;
+            color: var(--primary);
+            opacity: 0.3;
+            position: absolute;
+        }
+
+        .testimonial-quote::before {
+            top: -2rem;
+            left: -1rem;
+        }
+
+        .testimonial-quote::after {
+            bottom: -4rem;
+            right: -1rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .author-avatar {
+            width: 8rem;
+            height: 8rem;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            border: 3px solid var(--primary);
+        }
+
+        .author-name {
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            color: var(--gray-800);
+            margin-bottom: 0.5rem;
+        }
+
+        .author-title {
+            font-size: var(--font-size-sm);
+            color: var(--gray-600);
+        }
+
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 4rem;
+        }
+
+        .slider-btn {
+            width: 5rem;
+            height: 5rem;
+            border-radius: 50%;
+            background-color: var(--light);
+            color: var(--primary);
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+
+        .slider-btn:hover {
+            background-color: var(--primary);
+            color: var(--light);
+            transform: translateY(-3px);
+        }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .slider-dot {
+            width: 1.2rem;
+            height: 1.2rem;
+            border-radius: 50%;
+            background-color: var(--gray-300);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .slider-dot.active {
+            background-color: var(--primary);
+            transform: scale(1.2);
+        }
+
+        .cta {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: var(--light);
+            text-align: center;
+            padding: 8rem 0;
+        }
+
+        .cta-title {
+            font-size: var(--font-size-4xl);
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        .cta-text {
+            font-size: var(--font-size-lg);
+            max-width: 60rem;
+            margin: 0 auto 4rem;
+        }
+
+        .cta-form {
+            max-width: 60rem;
+            margin: 0 auto;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .cta-input {
+            flex: 1;
+            padding: 1.5rem 2rem;
+            font-size: var(--font-size-base);
+            border: none;
+            border-radius: var(--radius-md);
+            outline: none;
+        }
+
+        .cta-btn {
+            padding: 1.5rem 3rem;
+            font-size: var(--font-size-base);
+            font-weight: 600;
+            background-color: var(--secondary);
+            color: var(--light);
+            border-radius: var(--radius-md);
+            transition: var(--transition);
+        }
+
+        .cta-btn:hover {
+            background-color: #e0005c;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .footer {
+            background-color: var(--dark);
+            color: var(--gray-400);
+            padding: 8rem 0 2rem;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-logo {
+            font-size: var(--font-size-2xl);
+            font-weight: 700;
+            color: var(--light);
+            margin-bottom: 2rem;
+            display: inline-block;
+        }
+
+        .footer-text {
+            margin-bottom: 2rem;
+            font-size: var(--font-size-base);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .social-link {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--light);
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-title {
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            color: var(--light);
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: -1rem;
+            left: 0;
+            width: 5rem;
+            height: 2px;
+            background-color: var(--primary);
+        }
+
+        .footer-links li {
+            margin-bottom: 1.2rem;
+        }
+
+        .footer-link {
+            color: var(--gray-400);
+            transition: var(--transition);
+            font-size: var(--font-size-base);
+        }
+
+        .footer-link:hover {
+            color: var(--primary);
+            transform: translateX(5px);
+            display: inline-block;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            font-size: var(--font-size-sm);
+        }
+
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background-color: var(--light);
+            border-radius: var(--radius-md);
+            max-width: 80rem;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: translateY(-50px);
+            transition: all 0.4s ease;
+        }
+
+        .modal.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            background-color: var(--gray-200);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--gray-700);
+            transition: var(--transition);
+            z-index: 10;
+        }
+
+        .modal-close:hover {
+            background-color: var(--gray-300);
+            color: var(--gray-900);
+        }
+
+        .modal-header {
+            padding: 3rem 3rem 0;
+        }
+
+        .modal-title {
+            font-size: var(--font-size-2xl);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .modal-subtitle {
+            font-size: var(--font-size-base);
+            color: var(--gray-600);
+            margin-bottom: 2rem;
+        }
+
+        .modal-body {
+            padding: 0 3rem 3rem;
+        }
+
+        .template-preview {
+            margin-bottom: 3rem;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+
+        .template-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .template-description {
+            font-size: var(--font-size-base);
+            color: var(--gray-700);
+            margin-bottom: 2rem;
+        }
+
+        .template-features {
+            margin-bottom: 2rem;
+        }
+
+        .template-features-title {
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .template-feature-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: var(--font-size-base);
+            color: var(--gray-700);
+        }
+
+        .feature-check {
+            color: var(--primary);
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+
+        .template-pricing {
+            background-color: var(--gray-100);
+            padding: 2rem;
+            border-radius: var(--radius-md);
+        }
+
+        .template-price-title {
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .template-price-value {
+            font-size: 3.6rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 2rem;
+        }
+
+        .template-price-period {
+            font-size: var(--font-size-base);
+            color: var(--gray-600);
+        }
+
+        .template-actions {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .purchase-modal .modal-content {
+            max-width: 60rem;
+        }
+
+        .purchase-form {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .form-label {
+            font-size: var(--font-size-base);
+            font-weight: 500;
+            color: var(--gray-700);
+        }
+
+        .form-input {
+            padding: 1.2rem 1.5rem;
+            border: 1px solid var(--gray-300);
+            border-radius: var(--radius-md);
+            font-size: var(--font-size-base);
+            transition: var(--transition);
+        }
+
+        .form-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(58, 134, 255, 0.2);
+            outline: none;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .order-summary {
+            background-color: var(--gray-100);
+            padding: 2rem;
+            border-radius: var(--radius-md);
+            margin-bottom: 2rem;
+        }
+
+        .summary-title {
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--gray-800);
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            font-size: var(--font-size-base);
+            color: var(--gray-700);
+        }
+
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--gray-300);
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            color: var(--gray-800);
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 1.5rem;
+            background-color: var(--primary);
+            color: var(--light);
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            border-radius: var(--radius-md);
+            transition: var(--transition);
+        }
+
+        .checkout-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .success-modal .modal-content {
+            max-width: 50rem;
+            text-align: center;
+            padding: 4rem;
+        }
+
+        .success-icon {
+            width: 10rem;
+            height: 10rem;
+            margin: 0 auto 3rem;
+            background-color: rgba(16, 185, 129, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: #10b981;
+        }
+
+        .success-title {
+            font-size: var(--font-size-3xl);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--gray-800);
+        }
+
+        .success-message {
+            font-size: var(--font-size-lg);
+            color: var(--gray-600);
+            margin-bottom: 3rem;
+        }
+
+        .success-btn {
+            padding: 1.2rem 3rem;
+            background-color: var(--primary);
+            color: var(--light);
+            font-size: var(--font-size-base);
+            font-weight: 600;
+            border-radius: var(--radius-md);
+            transition: var(--transition);
+        }
+
+        .success-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .accessibility-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 6rem;
+            height: 6rem;
+            border-radius: 50%;
+            background-color: var(--secondary);
+            color: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.4rem;
+            box-shadow: var(--shadow-lg);
+            z-index: 900;
+            transition: var(--transition);
+        }
+
+        .accessibility-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .accessibility-menu {
+            position: fixed;
+            bottom: 9rem;
+            right: 2rem;
+            width: 30rem;
+            background-color: var(--light);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg);
+            padding: 2rem;
+            z-index: 900;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: var(--transition);
+        }
+
+        .accessibility-menu.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .accessibility-title {
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--gray-800);
+        }
+
+        .accessibility-option {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+        }
+
+        .option-label {
+            font-size: var(--font-size-base);
+            color: var(--gray-700);
+        }
+
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 5rem;
+            height: 2.6rem;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--gray-300);
+            transition: var(--transition);
+            border-radius: 3.4rem;
+        }
+
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 2rem;
+            width: 2rem;
+            left: 0.3rem;
+            bottom: 0.3rem;
+            background-color: white;
+            transition: var(--transition);
+            border-radius: 50%;
+        }
+
+        input:checked + .toggle-slider {
+            background-color: var(--primary);
+        }
+
+        input:checked + .toggle-slider:before {
+            transform: translateX(2.4rem);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes floatAnimation {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(255, 0, 110, 0.7);
+            }
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 10px rgba(255, 0, 110, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(255, 0, 110, 0);
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .hero-title {
+                font-size: var(--font-size-4xl);
+            }
+            
+            .featured-title {
+                font-size: var(--font-size-3xl);
+            }
+        }
+
+        @media (max-width: 992px) {
+            html {
+                font-size: 56.25%;
+            }
+            
+            .featured-container {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+            
+            .featured-image {
+                order: -1;
+            }
+            
+            .template-details {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            html {
+                font-size: 50%;
+            }
+            
+            .section {
+                padding: 8rem 0;
+            }
+            
+            .hero-title {
+                font-size: var(--font-size-3xl);
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            .nav-list {
+                position: fixed;
+                top: 0;
+                right: -30rem;
+                width: 30rem;
+                height: 100vh;
+                background-color: var(--light);
+                flex-direction: column;
+                padding: 10rem 2rem 2rem;
+                transition: var(--transition);
+                box-shadow: var(--shadow-lg);
+                z-index: 900;
+            }
+            
+            .nav-list.active {
+                right: 0;
+            }
+            
+            .nav-link {
+                color: var(--gray-700) !important;
+            }
+            
+            .nav-toggle {
+                display: block;
+                z-index: 1000;
+            }
+            
+            .templates-grid {
+                grid-template-columns: repeat(auto-fill, minmax(28rem, 1fr));
+            }
+            
+            .language-switcher {
+                margin-left: 0;
+                margin-right: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                text-align: center;
+            }
+            
+            .hero-content {
+                padding: 0 2rem;
+            }
+            
+            .cta-form {
+                flex-direction: column;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .template-actions {
+                flex-direction: column;
+            }
+            
+            .accessibility-menu {
+                width: calc(100% - 4rem);
+                right: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="accessibility-btn" id="accessibility-btn" aria-label="Opciones de accesibilidad">
+        <i class="fas">&#9881;</i>
+    </button>
+    
+    <div class="accessibility-menu" id="accessibility-menu">
+        <h3 class="accessibility-title" data-lang="accessibility-title">Opciones de accesibilidad</h3>
+        <div class="accessibility-option">
+            <span class="option-label" data-lang="high-contrast">Alto contraste</span>
+            <label class="toggle-switch">
+                <input type="checkbox" id="high-contrast-toggle">
+                <span class="toggle-slider"></span>
+            </label>
+        </div>
+        <div class="accessibility-option">
+            <span class="option-label" data-lang="large-text">Texto grande</span>
+            <label class="toggle-switch">
+                <input type="checkbox" id="large-text-toggle">
+                <span class="toggle-slider"></span>
+            </label>
+        </div>
+    </div>
+
+    <header class="header" id="header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <span class="logo-icon">
+                    <i class="fas">&#9733;</i>
+                </span>
+                Template<span>Hub</span>
+            </a>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="#" class="nav-link active" data-lang="nav-home">Inicio</a></li>
+                    <li><a href="#templates" class="nav-link" data-lang="nav-templates">Plantillas</a></li>
+                    <li><a href="#featured" class="nav-link" data-lang="nav-featured">Destacado</a></li>
+                    <li><a href="#testimonials" class="nav-link" data-lang="nav-testimonials">Testimonios</a></li>
+                    <li><a href="#contact" class="nav-link" data-lang="nav-contact">Contacto</a></li>
+                </ul>
+                <button class="nav-toggle" id="nav-toggle">
+                    <i class="fas">&#9776;</i>
+                </button>
+            </nav>
+            <div class="language-switcher">
+                <button class="language-btn" id="current-language">
+                    <img src="https://flagcdn.com/w20/es.png" alt="Español" class="language-flag" id="current-flag">
+                    <span data-lang="lang-es">Español</span>
+                </button>
+                <div class="language-dropdown">
+                    <a href="#" class="language-option" data-lang-code="es">
+                        <img src="https://flagcdn.com/w20/es.png" alt="Español" class="language-flag">
+                        <span>Español</span>
+                    </a>
+                    <a href="#" class="language-option" data-lang-code="en">
+                        <img src="https://flagcdn.com/w20/gb.png" alt="English" class="language-flag">
+                        <span>English</span>
+                    </a>
+                    <a href="#" class="language-option" data-lang-code="fr">
+                        <img src="https://flagcdn.com/w20/fr.png" alt="Français" class="language-flag">
+                        <span>Français</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title" data-lang="hero-title">Descubre Plantillas Web Profesionales para tu Próximo Proyecto</h1>
+                <p class="hero-subtitle" data-lang="hero-subtitle">Colección de plantillas web premium diseñadas para destacar tu presencia online. Responsive, modernas y fáciles de personalizar.</p>
+                <div class="hero-buttons">
+                    <a href="#templates" class="btn btn-primary" data-lang="hero-btn-templates">Ver Plantillas</a>
+                    <a href="#contact" class="btn btn-outline" data-lang="hero-btn-contact">Contactar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section features" id="features">
+        <div class="container">
+            <h2 class="section-title" data-lang="features-title">¿Por qué elegir nuestras plantillas?</h2>
+            <div class="features-container">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas">&#128187;</i>
+                    </div>
+                    <h3 class="feature-title" data-lang="feature-1-title">Diseño Responsive</h3>
+                    <p class="feature-text" data-lang="feature-1-text">Todas nuestras plantillas se adaptan perfectamente a cualquier dispositivo, desde móviles hasta pantallas de escritorio.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas">&#9881;</i>
+                    </div>
+                    <h3 class="feature-title" data-lang="feature-2-title">Fácil Personalización</h3>
+                    <p class="feature-text" data-lang="feature-2-text">Modifica colores, fuentes e imágenes sin necesidad de conocimientos avanzados de programación.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas">&#128640;</i>
+                    </div>
+                    <h3 class="feature-title" data-lang="feature-3-title">Optimizadas para SEO</h3>
+                    <p class="feature-text" data-lang="feature-3-text">Código limpio y estructura semántica para mejorar el posicionamiento en buscadores.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section templates" id="templates">
+        <div class="container">
+            <h2 class="section-title" data-lang="templates-title">Explora Nuestras Plantillas</h2>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all" data-lang="filter-all">Todas</button>
+                <button class="filter-btn" data-filter="business" data-lang="filter-business">Negocios</button>
+                <button class="filter-btn" data-filter="portfolio" data-lang="filter-portfolio">Portafolio</button>
+                <button class="filter-btn" data-filter="ecommerce" data-lang="filter-ecommerce">E-commerce</button>
+                <button class="filter-btn" data-filter="blog" data-lang="filter-blog">Blog</button>
+            </div>
+            <div class="templates-grid">
+                <div class="template-card" data-category="business">
+                    <div class="template-image">
+                        <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80" alt="Plantilla Corporativa">
+                        <div class="template-overlay">
+                            <div class="template-buttons">
+                                <a href="#" class="template-btn preview" data-modal="template1" data-lang="btn-preview">Vista Previa</a>
+                                <a href="#" class="template-btn buy-btn" data-template="Corporativa Pro" data-price="299.99" data-lang="btn-buy">Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-content">
+                        <span class="template-tag" data-lang="tag-business">Negocios</span>
+                        <h3 class="template-title">Corporativa Pro</h3>
+                        <div class="template-info">
+                            <div class="template-price">€299.99</div>
+                            <div class="template-rating">
+                                <div class="stars">★★★★★</div>
+                                <span>(24)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="template-card" data-category="portfolio">
+                    <div class="template-image">
+                        <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80" alt="Plantilla Portafolio">
+                        <div class="template-overlay">
+                            <div class="template-buttons">
+                                <a href="#" class="template-btn preview" data-modal="template2" data-lang="btn-preview">Vista Previa</a>
+                                <a href="#" class="template-btn buy-btn" data-template="Creative Portfolio" data-price="129.99" data-lang="btn-buy">Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-content">
+                        <span class="template-tag" data-lang="tag-portfolio">Portafolio</span>
+                        <h3 class="template-title">Creative Portfolio</h3>
+                        <div class="template-info">
+                            <div class="template-price">€129.99</div>
+                            <div class="template-rating">
+                                <div class="stars">★★★★☆</div>
+                                <span>(18)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="template-card" data-category="ecommerce">
+                    <div class="template-image">
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Plantilla E-commerce">
+                        <div class="template-overlay">
+                            <div class="template-buttons">
+                                <a href="#" class="template-btn preview" data-modal="template3" data-lang="btn-preview">Vista Previa</a>
+                                <a href="#" class="template-btn buy-btn" data-template="ShopMaster" data-price="599.99" data-lang="btn-buy">Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-content">
+                        <span class="template-tag" data-lang="tag-ecommerce">E-commerce</span>
+                        <h3 class="template-title">ShopMaster</h3>
+                        <div class="template-info">
+                            <div class="template-price">€599.99</div>
+                            <div class="template-rating">
+                                <div class="stars">★★★★★</div>
+                                <span>(32)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="template-card" data-category="blog">
+                    <div class="template-image">
+                        <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Plantilla Blog">
+                        <div class="template-overlay">
+                            <div class="template-buttons">
+                                <a href="#" class="template-btn preview" data-modal="template4" data-lang="btn-preview">Vista Previa</a>
+                                <a href="#" class="template-btn buy-btn" data-template="BlogPro" data-price="99.99" data-lang="btn-buy">Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-content">
+                        <span class="template-tag" data-lang="tag-blog">Blog</span>
+                        <h3 class="template-title">BlogPro</h3>
+                        <div class="template-info">
+                            <div class="template-price">€99.99</div>
+                            <div class="template-rating">
+                                <div class="stars">★★★★☆</div>
+                                <span>(15)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="template-card" data-category="business">
+                    <div class="template-image">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2015&q=80" alt="Plantilla Landing Page">
+                        <div class="template-overlay">
+                            <div class="template-buttons">
+                                <a href="#" class="template-btn preview" data-modal="template5" data-lang="btn-preview">Vista Previa</a>
+                                <a href="#" class="template-btn buy-btn" data-template="Conversion Pro" data-price="299.99" data-lang="btn-buy">Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-content">
+                        <span class="template-tag" data-lang="tag-landing">Landing Page</span>
+                        <h3 class="template-title">Conversion Pro</h3>
+                        <div class="template-info">
+                            <div class="template-price">€299.99</div>
+                            <div class="template-rating">
+                                <div class="stars">★★★★★</div>
+                                <span>(21)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="template-card" data-category="portfolio">
+                    <div class="template-image">
+                        <img src="https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Plantilla Fotografía">
+                        <div class="template-overlay">
+                            <div class="template-buttons">
+                                <a href="#" class="template-btn preview" data-modal="template6" data-lang="btn-preview">Vista Previa</a>
+                                <a href="#" class="template-btn buy-btn" data-template="PhotoStudio" data-price="129.99" data-lang="btn-buy">Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-content">
+                        <span class="template-tag" data-lang="tag-photography">Fotografía</span>
+                        <h3 class="template-title">PhotoStudio</h3>
+                        <div class="template-info">
+                            <div class="template-price">€129.99</div>
+                            <div class="template-rating">
+                                <div class="stars">★★★★☆</div>
+                                <span>(12)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section featured" id="featured">
+        <div class="container featured-container">
+            <div class="featured-content">
+                <span class="featured-subtitle" data-lang="featured-subtitle">Plantilla Destacada</span>
+                <h2 class="featured-title" data-lang="featured-title">Elegancia Digital - Plantilla Premium</h2>
+                <p class="featured-text" data-lang="featured-text">Una plantilla moderna y elegante, perfecta para negocios digitales que buscan destacar en línea con un diseño sofisticado y funcional.</p>
+                <ul class="featured-list">
+                    <li class="featured-item">
+                        <div class="featured-icon">
+                            <i class="fas">&#10003;</i>
+                        </div>
+                        <span data-lang="featured-item-1">Diseño 100% responsive para todos los dispositivos</span>
+                    </li>
+                    <li class="featured-item">
+                        <div class="featured-icon">
+                            <i class="fas">&#10003;</i>
+                        </div>
+                        <span data-lang="featured-item-2">5 páginas incluidas (Home, About, Services, Portfolio, Contact)</span>
+                    </li>
+                    <li class="featured-item">
+                        <div class="featured-icon">
+                            <i class="fas">&#10003;</i>
+                        </div>
+                        <span data-lang="featured-item-3">Soporte técnico por 6 meses</span>
+                    </li>
+                    <li class="featured-item">
+                        <div class="featured-icon">
+                            <i class="fas">&#10003;</i>
+                        </div>
+                        <span data-lang="featured-item-4">Actualizaciones gratuitas de por vida</span>
+                    </li>
+                </ul>
+                <a href="#" class="btn btn-primary buy-btn" data-template="Elegancia Digital" data-price="99.99" data-lang="featured-btn">Comprar Ahora</a>
+            </div>
+            <div class="featured-image">
+                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Plantilla Destacada" class="featured-img">
+                <div class="featured-badge" data-lang="featured-badge">-20%</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title" data-lang="testimonials-title">Lo que dicen nuestros clientes</h2>
+            <div class="testimonials-container">
+                <div class="testimonial-slider">
+                    <div class="testimonial-track" id="testimonial-track">
+                        <div class="testimonial-slide">
+                            <div class="testimonial-card">
+                                <p class="testimonial-quote" data-lang="testimonial-1">Las plantillas de TemplateHub han transformado por completo mi negocio online. El diseño profesional y la facilidad de uso me permitieron lanzar mi sitio web en tiempo récord.</p>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">
+                                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="María García">
+                                    </div>
+                                    <h4 class="author-name">María García</h4>
+                                    <p class="author-title" data-lang="testimonial-1-title">Diseñadora Freelance</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-slide">
+                            <div class="testimonial-card">
+                                <p class="testimonial-quote" data-lang="testimonial-2">Increíble calidad y atención al detalle. La plantilla E-commerce que compré superó todas mis expectativas y el soporte técnico ha sido excepcional cuando lo he necesitado.</p>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">
+                                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos Rodríguez">
+                                    </div>
+                                    <h4 class="author-name">Carlos Rodríguez</h4>
+                                    <p class="author-title" data-lang="testimonial-2-title">Propietario de Tienda Online</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-slide">
+                            <div class="testimonial-card">
+                                <p class="testimonial-quote" data-lang="testimonial-3">Como fotógrafa, necesitaba una web que destacara mi trabajo. La plantilla PhotoStudio me dio exactamente lo que buscaba: elegancia, simplicidad y un enfoque en mis imágenes.</p>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">
+                                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Laura Martínez">
+                                    </div>
+                                    <h4 class="author-name">Laura Martínez</h4>
+                                    <p class="author-title" data-lang="testimonial-3-title">Fotógrafa Profesional</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slider-controls">
+                        <button class="slider-btn prev" id="prev-btn">
+                            <i class="fas">&#8592;</i>
+                        </button>
+                        <button class="slider-btn next" id="next-btn">
+                            <i class="fas">&#8594;</i>
+                        </button>
+                    </div>
+                    <div class="slider-dots" id="slider-dots">
+                        <span class="slider-dot active"></span>
+                        <span class="slider-dot"></span>
+                        <span class="slider-dot"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta" id="contact">
+        <div class="container">
+            <h2 class="cta-title" data-lang="cta-title">¿Listo para impulsar tu presencia online?</h2>
+            <p class="cta-text" data-lang="cta-text">Suscríbete a nuestro boletín y recibe actualizaciones sobre nuevas plantillas, ofertas exclusivas y consejos de diseño web.</p>
+            <form class="cta-form">
+                <input type="email" class="cta-input" placeholder="Tu correo electrónico" data-lang-placeholder="email-placeholder" required>
+                <button type="submit" class="cta-btn" data-lang="cta-btn">Suscribirse</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <a href="#" class="footer-logo">Template<span>Hub</span></a>
+                    <p class="footer-text" data-lang="footer-text">Ofrecemos plantillas web premium diseñadas para destacar tu presencia online con diseños modernos y funcionales.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab">&#xf09a;</i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab">&#xf099;</i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab">&#xf16d;</i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab">&#xf0e1;</i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3 class="footer-title" data-lang="footer-links">Enlaces Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link" data-lang="nav-home">Inicio</a></li>
+                        <li><a href="#templates" class="footer-link" data-lang="nav-templates">Plantillas</a></li>
+                        <li><a href="#featured" class="footer-link" data-lang="nav-featured">Destacado</a></li>
+                        <li><a href="#testimonials" class="footer-link" data-lang="nav-testimonials">Testimonios</a></li>
+                        <li><a href="#contact" class="footer-link" data-lang="nav-contact">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 class="footer-title" data-lang="footer-categories">Categorías</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link" data-lang="filter-business">Negocios</a></li>
+                        <li><a href="#" class="footer-link" data-lang="filter-portfolio">Portafolio</a></li>
+                        <li><a href="#" class="footer-link" data-lang="filter-ecommerce">E-commerce</a></li>
+                        <li><a href="#" class="footer-link" data-lang="filter-blog">Blog</a></li>
+                        <li><a href="#" class="footer-link" data-lang="tag-landing">Landing Page</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 class="footer-title" data-lang="footer-contact">Contacto</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas">&#9993;</i>
+                        </div>
+                        <p>regr91@educa.madrid.org</p>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas">&#128222;</i>
+                        </div>
+                        <p>+34 912 345 678</p>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas">&#127968;</i>
+                        </div>
+                        <p data-lang="address"> IES FRANCISCO DE QUEVEDO, Madrid, España</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-lang="copyright">&copy; 2025 TemplateHub. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal" id="template-modal">
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close">
+                <i class="fas">&#10005;</i>
+            </button>
+            <div class="modal-header">
+                <h3 class="modal-title" id="modal-title">Corporativa Pro</h3>
+                <p class="modal-subtitle" id="modal-subtitle" data-lang="modal-subtitle">Plantilla premium para negocios</p>
+            </div>
+            <div class="modal-body">
+                <div class="template-preview">
+                    <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80" alt="Vista previa de plantilla" id="modal-image">
+                </div>
+                <div class="template-details">
+                    <div>
+                        <p class="template-description" id="modal-description">Una plantilla elegante y profesional diseñada específicamente para empresas y negocios que buscan una presencia online sólida y confiable.</p>
+                        <div class="template-features">
+                            <h4 class="template-features-title" data-lang="features-title-modal">Características</h4>
+                            <ul id="modal-features">
+                                <li class="template-feature-item">
+                                    <span class="feature-check">✓</span>
+                                    <span data-lang="feature-responsive">Diseño 100% responsive</span>
+                                </li>
+                                <li class="template-feature-item">
+                                    <span class="feature-check">✓</span>
+                                    <span data-lang="feature-pages">5 páginas incluidas</span>
+                                </li>
+                                <li class="template-feature-item">
+                                    <span class="feature-check">✓</span>
+                                    <span data-lang="feature-support">Soporte técnico por 6 meses</span>
+                                </li>
+                                <li class="template-feature-item">
+                                    <span class="feature-check">✓</span>
+                                    <span data-lang="feature-updates">Actualizaciones gratuitas</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="template-pricing">
+                        <h4 class="template-price-title" data-lang="price-title">Precio</h4>
+                        <div class="template-price-value" id="modal-price">€299.99</div>
+                        <p class="template-price-period" data-lang="price-period">Pago único, sin suscripción</p>
+                        <div class="template-actions">
+                            <a href="#" class="btn btn-primary buy-btn" id="modal-buy-btn" data-template="" data-price="299.99" data-lang="btn-buy-now">Comprar Ahora</a>
+                            <a href="#" class="btn btn-outline" data-lang="btn-live-demo">Demo en Vivo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal purchase-modal" id="purchase-modal">
+        <div class="modal-content">
+            <button class="modal-close" id="purchase-modal-close">
+                <i class="fas">&#10005;</i>
+            </button>
+            <div class="modal-header">
+                <h3 class="modal-title" data-lang="checkout-title">Finalizar Compra</h3>
+                <p class="modal-subtitle" data-lang="checkout-subtitle">Complete sus datos para adquirir la plantilla</p>
+            </div>
+            <div class="modal-body">
+                <div class="order-summary">
+                    <h4 class="summary-title" data-lang="order-summary">Resumen del Pedido</h4>
+                    <div class="summary-item">
+                        <span data-lang="product">Producto:</span>
+                        <span id="checkout-product">Corporativa Pro</span>
+                    </div>
+                    <div class="summary-item">
+                        <span data-lang="price">Precio:</span>
+                        <span id="checkout-price">€299.99</span>
+                    </div>
+                    <div class="summary-total">
+                        <span data-lang="total">Total:</span>
+                        <span id="checkout-total">€299.99</span>
+                    </div>
+                </div>
+                <form class="purchase-form" id="purchase-form">
+                    <div class="form-group">
+                        <label for="name" class="form-label" data-lang="form-name">Nombre completo</label>
+                        <input type="text" id="name" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="form-label" data-lang="form-email">Correo electrónico</label>
+                        <input type="email" id="email" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" data-lang="form-payment">Información de pago</label>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="card-number" class="form-label" data-lang="form-card">Número de tarjeta</label>
+                                <input type="text" id="card-number" class="form-input" placeholder="1234 5678 9012 3456" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="card-expiry" class="form-label" data-lang="form-expiry">Fecha de expiración</label>
+                                <input type="text" id="card-expiry" class="form-input" placeholder="MM/AA" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="card-name" class="form-label" data-lang="form-card-name">Nombre en la tarjeta</label>
+                                <input type="text" id="card-name" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="card-cvc" class="form-label" data-lang="form-cvc">CVC</label>
+                                <input type="text" id="card-cvc" class="form-input" placeholder="123" required>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="checkout-btn" data-lang="btn-complete-purchase">Completar Compra</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal success-modal" id="success-modal">
+        <div class="modal-content">
+            <div class="success-icon">
+                <i class="fas">&#10003;</i>
+            </div>
+            <h3 class="success-title" data-lang="success-title">¡Compra Exitosa!</h3>
+            <p class="success-message" data-lang="success-message">Gracias por tu compra. Hemos enviado los detalles de descarga a tu correo electrónico.</p>
+            <button class="success-btn" id="success-close" data-lang="btn-continue">Continuar Explorando</button>
+        </div>
+    </div>
+
+    <script>
+        const translations = {
+            es: {
+                "nav-home": "Inicio",
+                "nav-templates": "Plantillas",
+                "nav-featured": "Destacado",
+                "nav-testimonials": "Testimonios",
+                "nav-contact": "Contacto",
+                "lang-es": "Español",
+                
+                "hero-title": "Descubre Plantillas Web Profesionales para tu Próximo Proyecto",
+                "hero-subtitle": "Colección de plantillas web premium diseñadas para destacar tu presencia online. Responsive, modernas y fáciles de personalizar.",
+                "hero-btn-templates": "Ver Plantillas",
+                "hero-btn-contact": "Contactar",
+                
+                "features-title": "¿Por qué elegir nuestras plantillas?",
+                "feature-1-title": "Diseño Responsive",
+                "feature-1-text": "Todas nuestras plantillas se adaptan perfectamente a cualquier dispositivo, desde móviles hasta pantallas de escritorio.",
+                "feature-2-title": "Fácil Personalización",
+                "feature-2-text": "Modifica colores, fuentes e imágenes sin necesidad de conocimientos avanzados de programación.",
+                "feature-3-title": "Optimizadas para SEO",
+                "feature-3-text": "Código limpio y estructura semántica para mejorar el posicionamiento en buscadores.",
+                
+                "templates-title": "Explora Nuestras Plantillas",
+                "filter-all": "Todas",
+                "filter-business": "Negocios",
+                "filter-portfolio": "Portafolio",
+                "filter-ecommerce": "E-commerce",
+                "filter-blog": "Blog",
+                "tag-business": "Negocios",
+                "tag-portfolio": "Portafolio",
+                "tag-ecommerce": "E-commerce",
+                "tag-blog": "Blog",
+                "tag-landing": "Landing Page",
+                "tag-photography": "Fotografía",
+                "btn-preview": "Vista Previa",
+                "btn-buy": "Comprar",
+                
+                "featured-subtitle": "Plantilla Destacada",
+                "featured-title": "Elegancia Digital - Plantilla Premium",
+                "featured-text": "Una plantilla moderna y elegante, perfecta para negocios digitales que buscan destacar en línea con un diseño sofisticado y funcional.",
+                "featured-item-1": "Diseño 100% responsive para todos los dispositivos",
+                "featured-item-2": "5 páginas incluidas (Home, About, Services, Portfolio, Contact)",
+                "featured-item-3": "Soporte técnico por 6 meses",
+                "featured-item-4": "Actualizaciones gratuitas de por vida",
+                "featured-btn": "Comprar Ahora",
+                "featured-badge": "-20%",
+                
+                "testimonials-title": "Lo que dicen nuestros clientes",
+                "testimonial-1": "Las plantillas de TemplateHub han transformado por completo mi negocio online. El diseño profesional y la facilidad de uso me permitieron lanzar mi sitio web en tiempo récord.",
+                "testimonial-1-title": "Diseñadora Freelance",
+                "testimonial-2": "Increíble calidad y atención al detalle. La plantilla E-commerce que compré superó todas mis expectativas y el soporte técnico ha sido excepcional cuando lo he necesitado.",
+                "testimonial-2-title": "Propietario de Tienda Online",
+                "testimonial-3": "Como fotógrafa, necesitaba una web que destacara mi trabajo. La plantilla PhotoStudio me dio exactamente lo que buscaba: elegancia, simplicidad y un enfoque en mis imágenes.",
+                "testimonial-3-title": "Fotógrafa Profesional",
+                
+                "cta-title": "¿Listo para impulsar tu presencia online?",
+                "cta-text": "Suscríbete a nuestro boletín y recibe actualizaciones sobre nuevas plantillas, ofertas exclusivas y consejos de diseño web.",
+                "cta-btn": "Suscribirse",
+                "email-placeholder": "Tu correo electrónico",
+                
+                "footer-text": "Ofrecemos plantillas web premium diseñadas para destacar tu presencia online con diseños modernos y funcionales.",
+                "footer-links": "Enlaces Rápidos",
+                "footer-categories": "Categorías",
+                "footer-contact": "Contacto",
+                "address": "Calle Principal 123, Madrid, España",
+                "copyright": "© 2025 TemplateHub. Todos los derechos reservados.",
+                
+                "modal-subtitle": "Plantilla premium para negocios",
+                "features-title-modal": "Características",
+                "feature-responsive": "Diseño 100% responsive",
+                "feature-pages": "5 páginas incluidas",
+                "feature-support": "Soporte técnico por 6 meses",
+                "feature-updates": "Actualizaciones gratuitas",
+                "price-title": "Precio",
+                "price-period": "Pago único, sin suscripción",
+                "btn-buy-now": "Comprar Ahora",
+                "btn-live-demo": "Demo en Vivo",
+                
+                "checkout-title": "Finalizar Compra",
+                "checkout-subtitle": "Complete sus datos para adquirir la plantilla",
+                "order-summary": "Resumen del Pedido",
+                "product": "Producto:",
+                "price": "Precio:",
+                "total": "Total:",
+                "form-name": "Nombre completo",
+                "form-email": "Correo electrónico",
+                "form-payment": "Información de pago",
+                "form-card": "Número de tarjeta",
+                "form-expiry": "Fecha de expiración",
+                "form-card-name": "Nombre en la tarjeta",
+                "form-cvc": "CVC",
+                "btn-complete-purchase": "Completar Compra",
+                
+                "success-title": "¡Compra Exitosa!",
+                "success-message": "Gracias por tu compra. Hemos enviado los detalles de descarga a tu correo electrónico.",
+                "btn-continue": "Continuar Explorando",
+                
+                "accessibility-title": "Opciones de accesibilidad",
+                "high-contrast": "Alto contraste",
+                "large-text": "Texto grande"
+            },
+            en: {
+                "nav-home": "Home",
+                "nav-templates": "Templates",
+                "nav-featured": "Featured",
+                "nav-testimonials": "Testimonials",
+                "nav-contact": "Contact",
+                "lang-es": "English",
+                
+                "hero-title": "Discover Professional Web Templates for Your Next Project",
+                "hero-subtitle": "Collection of premium web templates designed to enhance your online presence. Responsive, modern and easy to customize.",
+                "hero-btn-templates": "View Templates",
+                "hero-btn-contact": "Contact Us",
+                
+                "features-title": "Why choose our templates?",
+                "feature-1-title": "Responsive Design",
+                "feature-1-text": "All our templates adapt perfectly to any device, from mobile to desktop screens.",
+                "feature-2-title": "Easy Customization",
+                "feature-2-text": "Modify colors, fonts and images without advanced programming knowledge.",
+                "feature-3-title": "SEO Optimized",
+                "feature-3-text": "Clean code and semantic structure to improve search engine positioning.",
+                
+                "templates-title": "Explore Our Templates",
+                "filter-all": "All",
+                "filter-business": "Business",
+                "filter-portfolio": "Portfolio",
+                "filter-ecommerce": "E-commerce",
+                "filter-blog": "Blog",
+                "tag-business": "Business",
+                "tag-portfolio": "Portfolio",
+                "tag-ecommerce": "E-commerce",
+                "tag-blog": "Blog",
+                "tag-landing": "Landing Page",
+                "tag-photography": "Photography",
+                "btn-preview": "Preview",
+                "btn-buy": "Buy",
+                
+                "featured-subtitle": "Featured Template",
+                "featured-title": "Digital Elegance - Premium Template",
+                "featured-text": "A modern and elegant template, perfect for digital businesses looking to stand out online with a sophisticated and functional design.",
+                "featured-item-1": "100% responsive design for all devices",
+                "featured-item-2": "5 pages included (Home, About, Services, Portfolio, Contact)",
+                "featured-item-3": "Technical support for 6 months",
+                "featured-item-4": "Free lifetime updates",
+                "featured-btn": "Buy Now",
+                "featured-badge": "-20%",
+                
+                "testimonials-title": "What our clients say",
+                "testimonial-1": "TemplateHub templates have completely transformed my online business. The professional design and ease of use allowed me to launch my website in record time.",
+                "testimonial-1-title": "Freelance Designer",
+                "testimonial-2": "Amazing quality and attention to detail. The E-commerce template I purchased exceeded all my expectations and the technical support has been exceptional when I needed it.",
+                "testimonial-2-title": "Online Store Owner",
+                "testimonial-3": "As a photographer, I needed a website that would showcase my work. The PhotoStudio template gave me exactly what I was looking for: elegance, simplicity, and a focus on my images.",
+                "testimonial-3-title": "Professional Photographer",
+                
+                "cta-title": "Ready to boost your online presence?",
+                "cta-text": "Subscribe to our newsletter and receive updates on new templates, exclusive offers, and web design tips.",
+                "cta-btn": "Subscribe",
+                "email-placeholder": "Your email address",
+                
+                "footer-text": "We offer premium web templates designed to enhance your online presence with modern and functional designs.",
+                "footer-links": "Quick Links",
+                "footer-categories": "Categories",
+                "footer-contact": "Contact",
+                "address": "123 Main Street, New York, USA",
+                "copyright": "© 2025 TemplateHub. All rights reserved.",
+                
+                "modal-subtitle": "Premium business template",
+                "features-title-modal": "Features",
+                "feature-responsive": "100% responsive design",
+                "feature-pages": "5 pages included",
+                "feature-support": "Technical support for 6 months",
+                "feature-updates": "Free updates",
+                "price-title": "Price",
+                "price-period": "One-time payment, no subscription",
+                "btn-buy-now": "Buy Now",
+                "btn-live-demo": "Live Demo",
+                
+                "checkout-title": "Checkout",
+                "checkout-subtitle": "Complete your information to purchase the template",
+                "order-summary": "Order Summary",
+                "product": "Product:",
+                "price": "Price:",
+                "total": "Total:",
+                "form-name": "Full name",
+                "form-email": "Email address",
+                "form-payment": "Payment information",
+                "form-card": "Card number",
+                "form-expiry": "Expiration date",
+                "form-card-name": "Name on card",
+                "form-cvc": "CVC",
+                "btn-complete-purchase": "Complete Purchase",
+                
+                "success-title": "Purchase Successful!",
+                "success-message": "Thank you for your purchase. We have sent the download details to your email.",
+                "btn-continue": "Continue Exploring",
+                
+                "accessibility-title": "Accessibility Options",
+                "high-contrast": "High contrast",
+                "large-text": "Large text"
+            },
+            fr: {
+                "nav-home": "Accueil",
+                "nav-templates": "Modèles",
+                "nav-featured": "En vedette",
+                "nav-testimonials": "Témoignages",
+                "nav-contact": "Contact",
+                "lang-es": "Français",
+                
+                "hero-title": "Découvrez des Modèles Web Professionnels pour Votre Prochain Projet",
+                "hero-subtitle": "Collection de modèles web premium conçus pour mettre en valeur votre présence en ligne. Responsive, modernes et faciles à personnaliser.",
+                "hero-btn-templates": "Voir les Modèles",
+                "hero-btn-contact": "Nous Contacter",
+                
+                "features-title": "Pourquoi choisir nos modèles?",
+                "feature-1-title": "Design Responsive",
+                "feature-1-text": "Tous nos modèles s'adaptent parfaitement à tous les appareils, des mobiles aux écrans de bureau.",
+                "feature-2-title": "Personnalisation Facile",
+                "feature-2-text": "Modifiez les couleurs, les polices et les images sans connaissances avancées en programmation.",
+                "feature-3-title": "Optimisés pour le SEO",
+                "feature-3-text": "Code propre et structure sémantique pour améliorer le positionnement dans les moteurs de recherche.",
+                
+                "templates-title": "Explorez Nos Modèles",
+                "filter-all": "Tous",
+                "filter-business": "Entreprise",
+                "filter-portfolio": "Portfolio",
+                "filter-ecommerce": "E-commerce",
+                "filter-blog": "Blog",
+                "tag-business": "Entreprise",
+                "tag-portfolio": "Portfolio",
+                "tag-ecommerce": "E-commerce",
+                "tag-blog": "Blog",
+                "tag-landing": "Page d'Atterrissage",
+                "tag-photography": "Photographie",
+                "btn-preview": "Aperçu",
+                "btn-buy": "Acheter",
+                
+                "featured-subtitle": "Modèle en Vedette",
+                "featured-title": "Élégance Digitale - Modèle Premium",
+                "featured-text": "Un modèle moderne et élégant, parfait pour les entreprises numériques qui cherchent à se démarquer en ligne avec un design sophistiqué et fonctionnel.",
+                "featured-item-1": "Design 100% responsive pour tous les appareils",
+                "featured-item-2": "5 pages incluses (Accueil, À propos, Services, Portfolio, Contact)",
+                "featured-item-3": "Support technique pendant 6 mois",
+                "featured-item-4": "Mises à jour gratuites à vie",
+                "featured-btn": "Acheter Maintenant",
+                "featured-badge": "-20%",
+                
+                "testimonials-title": "Ce que disent nos clients",
+                "testimonial-1": "Les modèles de TemplateHub ont complètement transformé mon entreprise en ligne. Le design professionnel et la facilité d'utilisation m'ont permis de lancer mon site web en un temps record.",
+                "testimonial-1-title": "Designer Freelance",
+                "testimonial-2": "Qualité incroyable et attention aux détails. Le modèle E-commerce que j'ai acheté a dépassé toutes mes attentes et le support technique a été exceptionnel quand j'en ai eu besoin.",
+                "testimonial-2-title": "Propriétaire de Boutique en Ligne",
+                "testimonial-3": "En tant que photographe, j'avais besoin d'un site web qui mette en valeur mon travail. Le modèle PhotoStudio m'a donné exactement ce que je cherchais: élégance, simplicité et mise en avant de mes images.",
+                "testimonial-3-title": "Photographe Professionnelle",
+                
+                "cta-title": "Prêt à booster votre présence en ligne?",
+                "cta-text": "Abonnez-vous à notre newsletter et recevez des mises à jour sur les nouveaux modèles, des offres exclusives et des conseils de design web.",
+                "cta-btn": "S'abonner",
+                "email-placeholder": "Votre adresse email",
+                
+                "footer-text": "Nous proposons des modèles web premium conçus pour mettre en valeur votre présence en ligne avec des designs modernes et fonctionnels.",
+                "footer-links": "Liens Rapides",
+                "footer-categories": "Catégories",
+                "footer-contact": "Contact",
+                "address": "123 Rue Principale, Paris, France",
+                "copyright": "© 2025 TemplateHub. Tous droits réservés.",
+                
+                "modal-subtitle": "Modèle premium pour entreprises",
+                "features-title-modal": "Caractéristiques",
+                "feature-responsive": "Design 100% responsive",
+                "feature-pages": "5 pages incluses",
+                "feature-support": "Support technique pendant 6 mois",
+                "feature-updates": "Mises à jour gratuites",
+                "price-title": "Prix",
+                "price-period": "Paiement unique, pas d'abonnement",
+                "btn-buy-now": "Acheter Maintenant",
+                "btn-live-demo": "Démo en Direct",
+                
+                "checkout-title": "Finaliser l'Achat",
+                "checkout-subtitle": "Complétez vos informations pour acquérir le modèle",
+                "order-summary": "Résumé de la Commande",
+                "product": "Produit:",
+                "price": "Prix:",
+                "total": "Total:",
+                "form-name": "Nom complet",
+                "form-email": "Adresse email",
+                "form-payment": "Informations de paiement",
+                "form-card": "Numéro de carte",
+                "form-expiry": "Date d'expiration",
+                "form-card-name": "Nom sur la carte",
+                "form-cvc": "CVC",
+                "btn-complete-purchase": "Finaliser l'Achat",
+                
+                "success-title": "Achat Réussi!",
+                "success-message": "Merci pour votre achat. Nous avons envoyé les détails de téléchargement à votre email.",
+                "btn-continue": "Continuer l'Exploration",
+                
+                "accessibility-title": "Options d'Accessibilité",
+                "high-contrast": "Contraste élevé",
+                "large-text": "Texte grand"
+            }
+        };
+
+        let currentLanguage = 'es';
+
+        const templateData = {
+            template1: {
+                title: 'Corporativa Pro',
+                subtitle: 'Plantilla premium para negocios',
+                image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80',
+                description: 'Una plantilla elegante y profesional diseñada específicamente para empresas y negocios que buscan una presencia online sólida y confiable.',
+                price: '299.99'
+            },
+            template2: {
+                title: 'Creative Portfolio',
+                subtitle: 'Plantilla para creativos y artistas',
+                image: 'https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80',
+                description: 'Muestra tu trabajo creativo con esta elegante plantilla de portafolio diseñada para destacar tus proyectos y habilidades.',
+                price: '129.99'
+            },
+            template3: {
+                title: 'ShopMaster',
+                subtitle: 'Solución completa para e-commerce',
+                image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+                description: 'Una potente plantilla de comercio electrónico con todas las funcionalidades necesarias para vender tus productos online.',
+                price: '599.99'
+            },
+            template4: {
+                title: 'BlogPro',
+                subtitle: 'Plantilla optimizada para blogs',
+                image: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+                description: 'Ideal para bloggers y creadores de contenido, con diseño limpio y enfocado en la legibilidad y experiencia del lector.',
+                price: '99.99'
+            },
+            template5: {
+                title: 'Conversion Pro',
+                subtitle: 'Landing page de alto rendimiento',
+                image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2015&q=80',
+                description: 'Diseñada para maximizar conversiones con secciones estratégicamente ubicadas y llamados a la acción efectivos.',
+                price: '299.99'
+            },
+            template6: {
+                title: 'PhotoStudio',
+                subtitle: 'Plantilla para fotógrafos',
+                image: 'https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+                description: 'Exhibe tu portafolio fotográfico con esta elegante plantilla que pone el foco en tus imágenes con galerías de gran formato.',
+                price: '129.99'
+            }
+        };
+
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        const navToggle = document.getElementById('nav-toggle');
+        const navList = document.querySelector('.nav-list');
+
+        navToggle.addEventListener('click', () => {
+            navList.classList.toggle('active');
+        });
+
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navList.classList.remove('active');
+            });
+        });
+
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const templateCards = document.querySelectorAll('.template-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(btn => btn.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+                
+                templateCards.forEach(card => {
+                    if (filter === 'all') {
+                        card.style.display = 'block';
+                    } else {
+                        if (card.getAttribute('data-category') === filter) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
+
+        const track = document.getElementById('testimonial-track');
+        const slides = document.querySelectorAll('.testimonial-slide');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const dots = document.querySelectorAll('.slider-dot');
+
+        let currentIndex = 0;
+        const slideWidth = 100;
+
+        track.style.transform = `translateX(0%)`;
+
+        function updateSlider() {
+            track.style.transform = `translateX(-${currentIndex * slideWidth}%)`;
+            
+            dots.forEach((dot, index) => {
+                if (index === currentIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % slides.length;
+            updateSlider();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            updateSlider();
+        });
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentIndex = index;
+                updateSlider();
+            });
+        });
+
+        let slideInterval = setInterval(() => {
+            currentIndex = (currentIndex + 1) % slides.length;
+            updateSlider();
+        }, 5000);
+
+        const sliderContainer = document.querySelector('.testimonial-slider');
+        sliderContainer.addEventListener('mouseenter', () => {
+            clearInterval(slideInterval);
+        });
+
+        sliderContainer.addEventListener('mouseleave', () => {
+            slideInterval = setInterval(() => {
+                currentIndex = (currentIndex + 1) % slides.length;
+                updateSlider();
+            }, 5000);
+        });
+
+        const modal = document.getElementById('template-modal');
+        const modalClose = document.getElementById('modal-close');
+        const previewBtns = document.querySelectorAll('.template-btn.preview');
+        const modalTitle = document.getElementById('modal-title');
+        const modalSubtitle = document.getElementById('modal-subtitle');
+        const modalImage = document.getElementById('modal-image');
+        const modalDescription = document.getElementById('modal-description');
+        const modalPrice = document.getElementById('modal-price');
+        const modalBuyBtn = document.getElementById('modal-buy-btn');
+
+        previewBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const templateId = btn.getAttribute('data-modal');
+                const template = templateData[templateId];
+                
+                modalTitle.textContent = template.title;
+                modalSubtitle.textContent = translations[currentLanguage]['modal-subtitle'];
+                modalImage.src = template.image;
+                modalDescription.textContent = template.description;
+                modalPrice.textContent = `€${template.price}`;
+                
+                modalBuyBtn.setAttribute('data-template', template.title);
+                modalBuyBtn.setAttribute('data-price', template.price);
+                
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        modalClose.addEventListener('click', () => {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        const purchaseModal = document.getElementById('purchase-modal');
+        const purchaseModalClose = document.getElementById('purchase-modal-close');
+        const buyBtns = document.querySelectorAll('.buy-btn');
+        const checkoutProduct = document.getElementById('checkout-product');
+        const checkoutPrice = document.getElementById('checkout-price');
+        const checkoutTotal = document.getElementById('checkout-total');
+        const purchaseForm = document.getElementById('purchase-form');
+
+        buyBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const templateName = btn.getAttribute('data-template');
+                const templatePrice = btn.getAttribute('data-price');
+                
+                checkoutProduct.textContent = templateName;
+                checkoutPrice.textContent = `€${templatePrice}`;
+                checkoutTotal.textContent = `€${templatePrice}`;
+                
+                modal.classList.remove('active');
+                
+                purchaseModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        purchaseModalClose.addEventListener('click', () => {
+            purchaseModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        purchaseModal.addEventListener('click', (e) => {
+            if (e.target === purchaseModal) {
+                purchaseModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        const successModal = document.getElementById('success-modal');
+        const successClose = document.getElementById('success-close');
+
+        purchaseForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            purchaseModal.classList.remove('active');
+            
+            successModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            purchaseForm.reset();
+        });
+
+        successClose.addEventListener('click', () => {
+            successModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        const accessibilityBtn = document.getElementById('accessibility-btn');
+        const accessibilityMenu = document.getElementById('accessibility-menu');
+        const highContrastToggle = document.getElementById('high-contrast-toggle');
+        const largeTextToggle = document.getElementById('large-text-toggle');
+
+        accessibilityBtn.addEventListener('click', () => {
+            accessibilityMenu.classList.toggle('active');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!accessibilityMenu.contains(e.target) && e.target !== accessibilityBtn) {
+                accessibilityMenu.classList.remove('active');
+            }
+        });
+
+        highContrastToggle.addEventListener('change', () => {
+            if (highContrastToggle.checked) {
+                document.body.classList.add('high-contrast');
+            } else {
+                document.body.classList.remove('high-contrast');
+            }
+        });
+
+        largeTextToggle.addEventListener('change', () => {
+            if (largeTextToggle.checked) {
+                document.body.classList.add('large-text');
+            } else {
+                document.body.classList.remove('large-text');
+            }
+        });
+
+        const languageOptions = document.querySelectorAll('.language-option');
+        const currentLanguageText = document.getElementById('current-language').querySelector('span');
+        const currentLanguageFlag = document.getElementById('current-flag');
+
+        function changeLanguage(langCode) {
+            currentLanguage = langCode;
+            
+            const selectedOption = document.querySelector(`.language-option[data-lang-code="${langCode}"]`);
+            currentLanguageText.textContent = selectedOption.querySelector('span').textContent;
+            currentLanguageFlag.src = selectedOption.querySelector('img').src;
+            
+            document.querySelectorAll('[data-lang]').forEach(element => {
+                const key = element.getAttribute('data-lang');
+                if (translations[langCode][key]) {
+                    element.textContent = translations[langCode][key];
+                }
+            });
+            
+            document.querySelectorAll('[data-lang-placeholder]').forEach(element => {
+                const key = element.getAttribute('data-lang-placeholder');
+                if (translations[langCode][key]) {
+                    element.placeholder = translations[langCode][key];
+                }
+            });
+        }
+
+        languageOptions.forEach(option => {
+            option.addEventListener('click', (e) => {
+                e.preventDefault();
+                const langCode = option.getAttribute('data-lang-code');
+                changeLanguage(langCode);
+            });
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerHeight = document.querySelector('.header').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        const ctaForm = document.querySelector('.cta-form');
+        ctaForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = ctaForm.querySelector('input').value;
+            
+            if (email) {
+                alert(translations[currentLanguage]['success-message']);
+                ctaForm.reset();
+            }
+        });
+
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.feature-card, .template-card, .featured-content, .featured-image');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementPosition < windowHeight - 100) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        document.querySelectorAll('.feature-card, .template-card, .featured-content, .featured-image').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(30px)';
+            element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        });
+
+        window.addEventListener('load', animateOnScroll);
+        window.addEventListener('scroll', animateOnScroll);
+    </script>
+</body>
+</html>
